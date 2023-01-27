@@ -9,6 +9,8 @@
             *
         FROM
             products
+        WHERE 
+            deleted_at is NULL
         ORDER BY
             id desc
     ";
@@ -55,6 +57,7 @@
                                 <td> R$ " . number_format($resultArray[$i]['price'], 2, ',', '.') . " </td>
                                 <td> 
                                     <a class='btn btn-warning' href='form_product.php?id={$resultArray[$i]['id']}'> Editar </a>
+                                    <a class='btn btn-danger' href='delete_product.php?id={$resultArray[$i]['id']}'> Deletar </a>
                                 </td>
                             </tr>
                         ";
